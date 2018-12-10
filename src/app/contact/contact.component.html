@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Contact Form</mat-card-title>
+    <mat-card-content>
+
+      <app-input type="text" label="Name" formControlName="name"></app-input>
+      <app-input type="email" label="Email" formControlName="email"></app-input>
+
+      <!-- <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="email.hasError('email')">This field should be an email</mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+        <mat-error *ngIf="message.hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="message.hasError('minlength')">This field needs to have at least 10 characters</mat-error>
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+      <button mat-raised-button type="button" (click)="onClear()">Clear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
