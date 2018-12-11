@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Post, CreateAction, State } from '../../reducers/index';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-create',
@@ -9,7 +11,8 @@ export class CreateComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    private store: Store<State>,
   ) {}
 
   ngOnInit() {
@@ -28,7 +31,12 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
+    const post: Post = {
+      title: this.form.value.title,
+      content: this.form.value.content,
+    };
+    const action = new CreateAction(post);
+    this.store.dispatch(action);
   }
 
   onClear(): void {
