@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { Post, CreateAction, State } from '../../reducers/index';
+import { Post, CreateAction, State, UpdateAction } from '../../reducers/index';
 import { Store } from '@ngrx/store';
+import { v4 } from 'uuid';
 
 @Component({
   selector: 'app-create',
@@ -9,6 +10,7 @@ import { Store } from '@ngrx/store';
 })
 export class CreateComponent implements OnInit {
   form: FormGroup;
+  postId: string;
 
   constructor(
     public fb: FormBuilder,
@@ -32,10 +34,12 @@ export class CreateComponent implements OnInit {
 
   onSubmit(): void {
     const post: Post = {
+      id: this.postId || v4(),
       title: this.form.value.title,
       content: this.form.value.content,
     };
-    const action = new CreateAction(post);
+    const action = this.postId ? new UpdateAction(post) : new CreateAction(post);
+    this.postId = post.id;
     this.store.dispatch(action);
   }
 

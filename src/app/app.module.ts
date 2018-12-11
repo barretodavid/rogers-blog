@@ -58,12 +58,3 @@ import { environment } from '../environments/environment';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-/**
- * ContactComponent
- * Name => required
- * Email => required, valid email format
- * Message => required, >= 10 characters
- * Button: Send | Clear
- */
