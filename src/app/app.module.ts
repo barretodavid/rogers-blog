@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatToolbarModule,
@@ -16,12 +16,12 @@ import {
   MatInputModule,
   MatCardModule,
 } from '@angular/material';
-import { ListComponent } from './list.component';
-import { CreateComponent } from './create/create.component';
+import { ListComponent } from './components/list.component';
+import { CreateComponent } from './components/create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ContactComponent } from './contact/contact.component';
-import { InputComponent } from './input.component';
-import { TextareaComponent } from './textarea.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { InputComponent } from './components/input.component';
+import { TextareaComponent } from './components/textarea.component';
 
 @NgModule({
   declarations: [
