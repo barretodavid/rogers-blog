@@ -26,6 +26,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterSerializer } from './router.serializer';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,9 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatCardModule,
     StoreModule.forRoot(reducers, { metaReducers }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: RouterSerializer
+    }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],

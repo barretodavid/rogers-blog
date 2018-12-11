@@ -15,4 +15,11 @@ export class PostSelector {
       map(state => state.posts),
     );
   }
+
+  getPost(id: string): Observable<Post> {
+    return this.store.pipe(
+      map(state => state.posts),
+      map(posts => posts.find(post => post.id === id))
+    );
+  }
 }

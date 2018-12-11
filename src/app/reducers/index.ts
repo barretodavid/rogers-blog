@@ -9,6 +9,8 @@ import {
 import { environment } from '../../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { v4 } from 'uuid';
+import { RouterReducerState, routerReducer } from '@ngrx/router-store';
+import { RouterStateUrl } from '../router.serializer';
 
 const createActionType = 'Create blog post';
 const updateActionType = 'Update blog post';
@@ -31,6 +33,7 @@ export interface Post {
 
 export interface State {
   posts: Post[];
+  router: RouterReducerState<RouterStateUrl>;
 }
 
 const initialPosts: Post[] = [
@@ -50,7 +53,8 @@ function postsReducer(posts: Post[] = initialPosts, action: CreateAction | Updat
 }
 
 export const reducers: ActionReducerMap<State> = {
-  posts: postsReducer
+  posts: postsReducer,
+  router: routerReducer,
 };
 
 

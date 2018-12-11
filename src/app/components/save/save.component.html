@@ -1,6 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-card>
-    <mat-card-title>Create Post</mat-card-title>
+    <mat-card-title *ngIf="postId">Edit Post</mat-card-title>
+    <mat-card-title *ngIf="!postId">Create Post</mat-card-title>
     <mat-card-content class="flex flex-column">
       <app-input type="email" label="Title" formControlName="title"> 
       </app-input>
