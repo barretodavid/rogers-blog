@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 import { v4 } from 'uuid';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
+  selector: 'app-save',
+  templateUrl: './save.component.html',
 })
-export class CreateComponent implements OnInit {
+export class SaveComponent implements OnInit {
   form: FormGroup;
   postId: string;
 

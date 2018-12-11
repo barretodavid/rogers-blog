@@ -17,7 +17,7 @@ import {
   MatCardModule,
 } from '@angular/material';
 import { ListComponent } from './components/list.component';
-import { CreateComponent } from './components/create/create.component';
+import { SaveComponent } from './components/save/save.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './components/contact/contact.component';
 import { InputComponent } from './components/input.component';
@@ -32,7 +32,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     NavigationComponent,
     ListComponent,
-    CreateComponent,
+    SaveComponent,
     ContactComponent,
     InputComponent,
     TextareaComponent,

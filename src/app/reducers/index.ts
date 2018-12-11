@@ -8,6 +8,7 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { v4 } from 'uuid';
 
 const createActionType = 'Create blog post';
 const updateActionType = 'Update blog post';
@@ -32,11 +33,12 @@ export interface State {
   posts: Post[];
 }
 
-// const myArray = [1, 2, 3];
-// const double = myArray.map(value => value * 2);
-// [2, 4, 6]
+const initialPosts: Post[] = [
+  { id: v4(), title: 'Post 1', content: 'Some content' },
+  { id: v4(), title: 'Post 2', content: 'Some content' },
+];
 
-function postsReducer(posts: Post[] = [], action: CreateAction | UpdateAction): Post[] {
+function postsReducer(posts: Post[] = initialPosts, action: CreateAction | UpdateAction): Post[] {
   switch (action.type) {
     case createActionType:
       return [...posts, action.payload];
