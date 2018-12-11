@@ -21,6 +21,7 @@ import { CreateComponent } from './create/create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { InputComponent } from './input.component';
+import { TextareaComponent } from './textarea.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InputComponent } from './input.component';
     CreateComponent,
     ContactComponent,
     InputComponent,
+    TextareaComponent
   ],
   imports: [
     BrowserModule,
