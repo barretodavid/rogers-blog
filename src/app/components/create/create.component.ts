@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
   form: FormGroup;

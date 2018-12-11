@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Contact Form</mat-card-title>
+    <mat-card-content class="flex flex-column">
+      <app-input type="text" label="Name" formControlName="name"></app-input>
+      <app-input type="email" label="Email" formControlName="email"></app-input>
+      <app-textarea label="Message" formControlName="message"></app-textarea>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+      <button mat-raised-button type="button" (click)="onClear()">Clear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

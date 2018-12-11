@@ -1,10 +1,11 @@
 import { Component, Input, Self } from '@angular/core';
-import { NgControl, FormControl, ControlValueAccessor, AbstractControl } from '@angular/forms';
+import { NgControl, ControlValueAccessor } from '@angular/forms';
+import { BaseInput } from './base-input.class';
 
 @Component({
   selector: 'app-input',
   template: `
-  <mat-form-field>
+  <mat-form-field class="w-100">
     <mat-label>{{ label }}</mat-label>
     <input [type]="type" matInput [formControl]="controlDir.control">
     <mat-error *ngIf="controlDir.control.hasError('required')">
@@ -13,22 +14,11 @@ import { NgControl, FormControl, ControlValueAccessor, AbstractControl } from '@
     <mat-error *ngIf="controlDir.control.hasError('email')">This field should be an email</mat-error>
   </mat-form-field>
   `,
-  styles: [`
-    :host() {
-      display: block;
-      width: 100%;
-    }
-  `],
 })
-export class InputComponent implements ControlValueAccessor {
-  @Input() label: string;
+export class InputComponent extends BaseInput {
   @Input() type: string;
 
   constructor(@Self() public controlDir: NgControl) {
-    this.controlDir.valueAccessor = this;
+    super(controlDir);
   }
-
-  writeValue(obj: any): void {}
-  registerOnChange(fn: any): void {}
-  registerOnTouched(fn: any): void {}
 }

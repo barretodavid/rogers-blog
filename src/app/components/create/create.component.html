@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Create Post</mat-card-title>
+    <mat-card-content class="flex flex-column">
+      <app-input type="email" label="Title" formControlName="title"> 
+      </app-input>
+      <app-textarea label="Content" formControlName="content"></app-textarea>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Send</button>
+      <button mat-raised-button type="button" (click)="onClear()">Clear</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

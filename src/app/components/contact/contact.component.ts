@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, AbstractControl, Validators } from '@angular/fo
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
   form: FormGroup;
@@ -17,6 +16,8 @@ export class ContactComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
+
+    this.form.valueChanges.subscribe(values => console.log(values));
   }
 
   get name(): AbstractControl {
