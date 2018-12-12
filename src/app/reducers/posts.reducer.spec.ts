@@ -1,11 +1,11 @@
 import { postsReducer } from './posts.reducer';
-import { CreatePostSuccessAction } from './post.actions';
+import { CreatePostSuccessAction, UpdatePostSuccessAction } from './post.actions';
 import { Post } from './models';
 
 describe('postsReducer', () => {
   describe('when creating a new post successfully', () => {
     it('should add the post at the end of the array', () => {
-      const oldState = [];
+      const oldState: Post[] = [];
       const post: Post = {
         id: 'a',
         title: 'b',
@@ -24,7 +24,18 @@ describe('postsReducer', () => {
 
   describe('when updating an existing post successfully', () => {
     it('should put the updated post in the correct location', () => {
-
+      const oldState: Post[] = [
+        { id: 'i1', title: 't1', content: 'c1' },
+        { id: 'i2', title: 't2', content: 'c2' },
+      ];
+      const post: Post = { id: 'i2', title: 'x2', content: 'x2' };
+      const action = new UpdatePostSuccessAction(post);
+      const newState = postsReducer(oldState, action);
+      const expectedState: Post[] = [
+        { id: 'i1', title: 't1', content: 'c1' },
+        { id: 'i2', title: 'x2', content: 'x2' },
+      ];
+      expect(newState).toEqual(expectedState);
     });
   });
 });
