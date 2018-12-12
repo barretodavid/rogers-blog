@@ -1,5 +1,5 @@
 import { postsReducer } from './posts.reducer';
-import { CreatePostSuccessAction, UpdatePostSuccessAction } from './post.actions';
+import { CreatePostSuccessAction, UpdatePostSuccessAction, UpdatePostErrorAction } from './post.actions';
 import { Post } from './models';
 
 describe('postsReducer', () => {
@@ -35,6 +35,16 @@ describe('postsReducer', () => {
         { id: 'i1', title: 't1', content: 'c1' },
         { id: 'i2', title: 'x2', content: 'x2' },
       ];
+      expect(newState).toEqual(expectedState);
+    });
+  });
+
+  describe('when providing an unsupported action', () => {
+    it('should not perform any changes on the store', () => {
+      const oldState: Post[] = [];
+      const action = new UpdatePostErrorAction();
+      const newState = postsReducer(oldState, action);
+      const expectedState: Post[] = [];
       expect(newState).toEqual(expectedState);
     });
   });
