@@ -8,18 +8,17 @@ export enum CreatePostActionType {
 }
 
 export class CreatePostStartAction implements Action {
-  type = CreatePostActionType.Start;
+  readonly type = CreatePostActionType.Start;
   constructor(public payload: Post) {}
 }
 
 export class CreatePostSuccessAction implements Action {
-  type = CreatePostActionType.Success;
+  readonly type = CreatePostActionType.Success;
   constructor(public payload: Post) {}
 }
 
 export class CreatePostErrorAction implements Action {
-  type = CreatePostActionType.Error;
-  constructor(public payload = null) {}
+  readonly type = CreatePostActionType.Error;
 }
 
 export type CreatePostAction = CreatePostStartAction | CreatePostSuccessAction | CreatePostErrorAction;
@@ -31,18 +30,17 @@ export enum UpdatePostActionType {
 }
 
 export class UpdatePostStartAction implements Action {
-  type = UpdatePostActionType.Start;
+  readonly type = UpdatePostActionType.Start;
   constructor(public payload: Post) {}
 }
 
 export class UpdatePostSuccessAction implements Action {
-  type = UpdatePostActionType.Success;
+  readonly type = UpdatePostActionType.Success;
   constructor(public payload: Post) {}
 }
 
 export class UpdatePostErrorAction implements Action {
-  type = UpdatePostActionType.Error;
-  constructor(public payload = null) {}
+  readonly type = UpdatePostActionType.Error;
 }
 
 export type UpdatePostAction = UpdatePostStartAction | UpdatePostSuccessAction | UpdatePostErrorAction;

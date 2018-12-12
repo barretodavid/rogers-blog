@@ -13,8 +13,6 @@ import {
 } from './post.actions';
 import { Post, State } from './models';
 
-
-
 const initialPosts: Post[] = [
   { id: v4(), title: 'Post 1', content: 'Some content' },
   { id: v4(), title: 'Post 2', content: 'Some content' },

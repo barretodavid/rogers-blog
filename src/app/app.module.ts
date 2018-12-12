@@ -29,6 +29,8 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { RouterSerializer } from './router.serializer';
 import { EffectsModule } from '@ngrx/effects';
+import { PostEffects } from './reducers/post.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -58,7 +61,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreRouterConnectingModule.forRoot({
       serializer: RouterSerializer
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([PostEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],

@@ -1,3 +1,9 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "03755bb2-0274-4fe9-93e5-2a48720734ce",
+      "title": "My super thing",
+      "content": "My Content"
+    }
+  ]
 }
