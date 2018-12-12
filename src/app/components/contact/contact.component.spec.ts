@@ -1,18 +1,38 @@
 import { ContactComponent } from './contact.component';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule, NgControl, FormControl } from '@angular/forms';
 import { MatCardModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
-import { InputComponent } from '../input.component';
-import { TextareaComponent } from '../textarea.component';
-import { Component } from '@angular/core';
+import { Component, Input, Self } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BaseInput } from '../base-input.class';
 
-const nameControl = new FormControl('David');
-const messageControl = new FormControl('message');
+@Component({
+  selector: 'app-input',
+  template: '<input [type]="type" [formControl]="controlDir.control">'
+})
+class MockInputComponent extends BaseInput {
+  @Input() type: string;
+  constructor(@Self() public controlDir: NgControl) {
+    super(controlDir);
+  }
+}
+
+@Component({
+  selector: 'app-textarea',
+  template: '<textarea [formControl]="controlDir.control"></textarea>'
+})
+class MockTextareaComponent extends BaseInput {
+  constructor(@Self() public controlDir: NgControl) {
+    super(controlDir);
+  }
+}
 
 describe('ContactComponent', () => {
-  it('should render its template', () => {
-    TestBed.configureTestingModule({
+
+  let fixture: ComponentFixture<ContactComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
         MatCardModule,
@@ -23,31 +43,57 @@ describe('ContactComponent', () => {
       ],
       declarations: [
         ContactComponent,
-        InputComponent,
-        TextareaComponent,
+        MockInputComponent,
+        MockTextareaComponent,
       ]
     })
-    .overrideComponent(InputComponent, {
+    .overrideComponent(MockInputComponent, {
       set: {
         providers: [{
           provide: NgControl,
-          useValue: nameControl,
+          useValue: new FormControl(''),
         }]
       }
     })
-    .overrideComponent(TextareaComponent, {
+    .overrideComponent(MockTextareaComponent, {
       set: {
         providers: [{
           provide: NgControl,
-          useValue: messageControl,
+          useValue: new FormControl(''),
         }]
       }
     })
-    .compileComponents().then(() => {
-      const fixture = TestBed.createComponent(ContactComponent);
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ContactComponent);
+    fixture.detectChanges();
+  });
+
+  describe('when provided a name, a properly formatted email and a message of more than 10 characters', () => {
+    it('should mark all fields as valid', () => {
+      fixture.componentInstance.form.patchValue({
+        name: 'David',
+        email: 'barretollano@gmail.com',
+        message: 'Hello more than 10 characters'
+      });
       fixture.detectChanges();
       expect(fixture).toMatchSnapshot();
     });
   });
+
+  describe('when provided an empty name, an improperly formatted email and a message of less than 10 characters', () => {
+    it('should mark all fields as invalid', () => {
+      fixture.componentInstance.form.patchValue({
+        name: '',
+        email: 'barretollanogmail.com',
+        message: 'Hello'
+      });
+      fixture.detectChanges();
+      expect(fixture).toMatchSnapshot();
+    });
+  });
+
 });
 

@@ -1,6 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContactComponent should render its template 1`] = `
+exports[`ContactComponent when provided a name, a properly formatted email and a message of more than 10 characters should mark all fields as valid 1`] = `
+<app-contact
+  fb={[Function FormBuilder]}
+  form={[Function FormGroup]}
+>
+  <form
+    class="ng-untouched ng-pristine ng-valid"
+    ng-reflect-form="[object Object]"
+    novalidate=""
+  >
+    <mat-card
+      class="mat-card"
+    >
+      <mat-card-title
+        class="mat-card-title"
+      >
+        Contact Form
+      </mat-card-title>
+      <mat-card-content
+        class="flex flex-column mat-card-content"
+      >
+        <app-input
+          class="ng-untouched ng-pristine ng-valid"
+          formcontrolname="name"
+          label="Name"
+          ng-reflect-label="Name"
+          ng-reflect-name="name"
+          ng-reflect-type="text"
+          type="text"
+        >
+          <input
+            class="ng-untouched ng-pristine ng-valid"
+            ng-reflect-form="[object Object]"
+            type="text"
+          />
+        </app-input>
+        <app-input
+          class="ng-untouched ng-pristine ng-valid"
+          formcontrolname="email"
+          label="Email"
+          ng-reflect-label="Email"
+          ng-reflect-name="email"
+          ng-reflect-type="email"
+          type="email"
+        >
+          <input
+            class="ng-untouched ng-pristine ng-valid"
+            ng-reflect-form="[object Object]"
+            type="email"
+          />
+        </app-input>
+        <app-textarea
+          class="ng-untouched ng-pristine ng-valid"
+          formcontrolname="message"
+          label="Message"
+          ng-reflect-label="Message"
+          ng-reflect-name="message"
+        >
+          <textarea
+            class="ng-untouched ng-pristine ng-valid"
+            ng-reflect-form="[object Object]"
+          />
+        </app-textarea>
+      </mat-card-content>
+      <mat-card-actions
+        class="mat-card-actions"
+      >
+        <button
+          class="mat-raised-button mat-primary _mat-animation-noopable"
+          color="primary"
+          mat-raised-button=""
+          ng-reflect-color="primary"
+          ng-reflect-disabled="false"
+          type="submit"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Save
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="[object HTMLButtonElement]"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </button>
+        <button
+          class="mat-raised-button _mat-animation-noopable"
+          mat-raised-button=""
+          type="button"
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            Clear
+          </span>
+          <div
+            class="mat-button-ripple mat-ripple"
+            matripple=""
+            ng-reflect-centered="false"
+            ng-reflect-disabled="false"
+            ng-reflect-trigger="[object HTMLButtonElement]"
+          />
+          <div
+            class="mat-button-focus-overlay"
+          />
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</app-contact>
+`;
+
+exports[`ContactComponent when provided an empty name, an improperly formatted email and a message of less than 10 characters should mark all fields as invalid 1`] = `
 <app-contact
   fb={[Function FormBuilder]}
   form={[Function FormGroup]}
@@ -30,82 +148,11 @@ exports[`ContactComponent should render its template 1`] = `
           ng-reflect-type="text"
           type="text"
         >
-          <mat-form-field
-            class="w-100 mat-form-field ng-tns-c2-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid _mat-animation-noopable"
-          >
-            <div
-              class="mat-form-field-wrapper"
-            >
-              <div
-                class="mat-form-field-flex"
-              >
-                
-                
-                <div
-                  class="mat-form-field-infix"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-required="false"
-                    class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"
-                    id="mat-input-0"
-                    matinput=""
-                    ng-reflect-form="[object Object]"
-                    ng-reflect-type="text"
-                    type="text"
-                  />
-                  <span
-                    class="mat-form-field-label-wrapper"
-                  >
-                    
-                    <label
-                      aria-owns="mat-input-0"
-                      class="mat-form-field-label ng-tns-c2-0 mat-empty mat-form-field-empty ng-star-inserted"
-                      for="mat-input-0"
-                      id="mat-form-field-label-1"
-                      ng-reflect-disabled="true"
-                      ng-reflect-ng-switch="true"
-                    >
-                      
-                      
-                      <mat-label
-                        class="ng-star-inserted"
-                      >
-                        Name
-                      </mat-label>
-                      
-                      
-                    </label>
-                  </span>
-                </div>
-                
-              </div>
-              
-              <div
-                class="mat-form-field-underline ng-tns-c2-0 ng-star-inserted"
-              >
-                <span
-                  class="mat-form-field-ripple"
-                />
-              </div>
-              <div
-                class="mat-form-field-subscript-wrapper"
-                ng-reflect-ng-switch="hint"
-              >
-                
-                
-                <div
-                  class="mat-form-field-hint-wrapper ng-tns-c2-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
-                  style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
-                >
-                  
-                  <div
-                    class="mat-form-field-hint-spacer"
-                  />
-                </div>
-              </div>
-            </div>
-          </mat-form-field>
+          <input
+            class="ng-untouched ng-pristine ng-invalid"
+            ng-reflect-form="[object Object]"
+            type="text"
+          />
         </app-input>
         <app-input
           class="ng-untouched ng-pristine ng-invalid"
@@ -116,82 +163,11 @@ exports[`ContactComponent should render its template 1`] = `
           ng-reflect-type="email"
           type="email"
         >
-          <mat-form-field
-            class="w-100 mat-form-field ng-tns-c2-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid _mat-animation-noopable"
-          >
-            <div
-              class="mat-form-field-wrapper"
-            >
-              <div
-                class="mat-form-field-flex"
-              >
-                
-                
-                <div
-                  class="mat-form-field-infix"
-                >
-                  <input
-                    aria-invalid="false"
-                    aria-required="false"
-                    class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"
-                    id="mat-input-1"
-                    matinput=""
-                    ng-reflect-form="[object Object]"
-                    ng-reflect-type="email"
-                    type="email"
-                  />
-                  <span
-                    class="mat-form-field-label-wrapper"
-                  >
-                    
-                    <label
-                      aria-owns="mat-input-1"
-                      class="mat-form-field-label ng-tns-c2-1 mat-empty mat-form-field-empty ng-star-inserted"
-                      for="mat-input-1"
-                      id="mat-form-field-label-3"
-                      ng-reflect-disabled="true"
-                      ng-reflect-ng-switch="true"
-                    >
-                      
-                      
-                      <mat-label
-                        class="ng-star-inserted"
-                      >
-                        Email
-                      </mat-label>
-                      
-                      
-                    </label>
-                  </span>
-                </div>
-                
-              </div>
-              
-              <div
-                class="mat-form-field-underline ng-tns-c2-1 ng-star-inserted"
-              >
-                <span
-                  class="mat-form-field-ripple"
-                />
-              </div>
-              <div
-                class="mat-form-field-subscript-wrapper"
-                ng-reflect-ng-switch="hint"
-              >
-                
-                
-                <div
-                  class="mat-form-field-hint-wrapper ng-tns-c2-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
-                  style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
-                >
-                  
-                  <div
-                    class="mat-form-field-hint-spacer"
-                  />
-                </div>
-              </div>
-            </div>
-          </mat-form-field>
+          <input
+            class="ng-untouched ng-pristine ng-invalid"
+            ng-reflect-form="[object Object]"
+            type="email"
+          />
         </app-input>
         <app-textarea
           class="ng-untouched ng-pristine ng-invalid"
@@ -200,80 +176,10 @@ exports[`ContactComponent should render its template 1`] = `
           ng-reflect-label="Message"
           ng-reflect-name="message"
         >
-          <mat-form-field
-            class="w-100 mat-form-field ng-tns-c2-2 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid _mat-animation-noopable"
-          >
-            <div
-              class="mat-form-field-wrapper"
-            >
-              <div
-                class="mat-form-field-flex"
-              >
-                
-                
-                <div
-                  class="mat-form-field-infix"
-                >
-                  <textarea
-                    aria-invalid="false"
-                    aria-required="false"
-                    class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-untouched ng-pristine ng-invalid"
-                    id="mat-input-2"
-                    matinput=""
-                    ng-reflect-form="[object Object]"
-                  />
-                  <span
-                    class="mat-form-field-label-wrapper"
-                  >
-                    
-                    <label
-                      aria-owns="mat-input-2"
-                      class="mat-form-field-label ng-tns-c2-2 mat-empty mat-form-field-empty ng-star-inserted"
-                      for="mat-input-2"
-                      id="mat-form-field-label-5"
-                      ng-reflect-disabled="true"
-                      ng-reflect-ng-switch="true"
-                    >
-                      
-                      
-                      <mat-label
-                        class="ng-star-inserted"
-                      >
-                        Message
-                      </mat-label>
-                      
-                      
-                    </label>
-                  </span>
-                </div>
-                
-              </div>
-              
-              <div
-                class="mat-form-field-underline ng-tns-c2-2 ng-star-inserted"
-              >
-                <span
-                  class="mat-form-field-ripple"
-                />
-              </div>
-              <div
-                class="mat-form-field-subscript-wrapper"
-                ng-reflect-ng-switch="hint"
-              >
-                
-                
-                <div
-                  class="mat-form-field-hint-wrapper ng-tns-c2-2 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
-                  style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
-                >
-                  
-                  <div
-                    class="mat-form-field-hint-spacer"
-                  />
-                </div>
-              </div>
-            </div>
-          </mat-form-field>
+          <textarea
+            class="ng-untouched ng-pristine ng-invalid"
+            ng-reflect-form="[object Object]"
+          />
         </app-textarea>
       </mat-card-content>
       <mat-card-actions
