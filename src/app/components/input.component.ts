@@ -1,5 +1,5 @@
 import { Component, Input, Self } from '@angular/core';
-import { NgControl, ControlValueAccessor } from '@angular/forms';
+import { NgControl } from '@angular/forms';
 import { BaseInput } from './base-input.class';
 
 @Component({
