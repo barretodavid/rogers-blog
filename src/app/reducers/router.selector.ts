@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { State } from './index';
-import { Store, select } from '@ngrx/store';
+import { State } from './models';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

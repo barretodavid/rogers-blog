@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { Post, CreateAction, State, UpdateAction } from '../../reducers/index';
+import { Post, State } from '../../reducers/models';
+import { CreatePostStartAction, UpdatePostStartAction } from '../../reducers/post.actions';
 import { Store } from '@ngrx/store';
 import { v4 } from 'uuid';
 import { RouterSelector } from 'src/app/reducers/router.selector';
@@ -60,7 +61,7 @@ export class SaveComponent implements OnInit, OnDestroy {
       title: this.form.value.title,
       content: this.form.value.content,
     };
-    const action = this.postId ? new UpdateAction(post) : new CreateAction(post);
+    const action = this.postId ? new UpdatePostStartAction(post) : new CreatePostStartAction(post);
     this.postId = post.id;
     this.store.dispatch(action);
   }

@@ -28,6 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { RouterSerializer } from './router.serializer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { RouterSerializer } from './router.serializer';
     StoreRouterConnectingModule.forRoot({
       serializer: RouterSerializer
     }),
+    EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
